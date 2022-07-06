@@ -21,3 +21,4 @@ yarn start
 
 npm run start
 ```
+App will open localhost:3000
