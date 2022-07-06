@@ -55,6 +55,23 @@ function App() {
     return;
   };
 
+  const filterAll = () => {
+    const sortData = sortAsc ? tripDataRaw.tripSet.sort(compAsc) : tripDataRaw.tripSet.sort(compDesc);
+    setTripData(sortData);
+  };
+
+  const filterMountain = () => {
+    const filteredData = tripSetData.filter((item: any) => item.unitStyleName === "Mountain");
+    
+    setTripData(filteredData);
+  };
+
+  const filterBeach = () => {
+    const filteredData = tripSetData.filter((item: any) => item.unitStyleName === "Beach");
+    
+    setTripData(filteredData);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -62,7 +79,10 @@ function App() {
       </header>
       <div className="outer-container">
         <div className="sort-toggle">
-          <button onClick={toggleSort}>{`Sort ${sortBtnText}`}</button>
+          <button onClick={toggleSort}>{`Sort Check In ${sortBtnText}`}</button>
+          <button onClick={filterAll}>Remove Filter</button>
+          <button onClick={filterMountain}>Filter Mountain</button>
+          <button onClick={filterBeach}>Filter Beach</button>
         </div>
         <TripListContainer 
           tripSet={tripSetData}
